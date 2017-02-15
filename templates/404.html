@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--[if IE 8]> <html lang="en" class="ie8"> <![endif]-->
+<!--[if IE 9]> <html lang="en" class="ie9"> <![endif]-->
+<!--[if !IE]><!--> <html lang="en"> <!--<![endif]-->
+<head>
+	<title>404 Error Page 6 | Unify - Responsive Website Template</title>
+
+	<!-- Meta -->
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Favicon -->
+	<link rel="shortcut icon" href="{{url_for('static',filename='favicon.ico')}}">
+
+	<!-- Web Fonts -->
+	<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,700&amp;subset=cyrillic,latin">
+
+	<!-- CSS Global Compulsory -->
+	<link rel="stylesheet" href="{{url_for('static',filename='plugins/bootstrap/css/bootstrap.min.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/style.css')}}">
+
+	<!-- CSS Header and Footer -->
+	<link rel="stylesheet" href="{{url_for('static',filename='css/headers/header-default.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='css/footers/footer-v1.css')}}">
+
+	<!-- CSS Implementing Plugins -->
+	<link rel="stylesheet" href="{{url_for('static',filename='plugins/animate.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='plugins/line-icons/line-icons.css')}}">
+	<link rel="stylesheet" href="{{url_for('static',filename='plugins/font-awesome/css/font-awesome.min.css')}}">
+
+	<!-- CSS Page Style -->
+	<link rel="stylesheet" href="{{url_for('static',filename='css/pages/page_404_error6.css')}}">
+
+	<!-- CSS Customization -->
+	<link rel="stylesheet" href="{{url_for('static',filename='css/custom.css')}}">
+</head>
+
+<body>
+	<div class="wrapper">
+
+		<!--=== Error V7 ===-->
+		<div class="error-bg">
+			<div class="container">
+				<!--Error Block-->
+
+				<div class="row">
+					<div class="col-md-8 col-md-offset-2">
+						<div class="error-v7">
+							<h1>Ups! No Encontramos La Página!</h1>
+							<span class="sorry">La URL Solicitada no ha sido encontrada . Es todo lo que sabemos.</span>
+							<strong class="h1">404</strong>
+						</div>
+						<span class="input-group-btn">
+						<a href='index.html' class="btn-u btn-u-green">Back Home</a>
+						</span>
+					</div>
+				</div>
+			</div><!--/container-->
+		</div><!--/error-bg-->
+		<!--End Error Block-->
+		
+		<!--=== Sticky Footer ===-->
+		<div class="container sticky-footer">
+			<ul class="list-unstyled social-links margin-bottom-30">
+				<li><a href="#" class="fb"><i class="fa fa-facebook"></i></a></li>
+				<li><a href="#" class="tw"><i class="fa fa-twitter"></i></a></li>
+				<li><a href="#" class="gp"><i class="fa fa-google-plus"></i></a></li>
+			</ul>
+			<p class="copyright-space">
+				2017 &copy; All Rights Reserved. Café Internet  <a href="http://tecla.com/" target="_blank">TECLA </a>
+			</p>
+		</div>
+		<!--=== End Sticky Footer ===-->
+	</div><!--/wrapper-->
+	
+	<!-- JS Global Compulsory -->
+	<script src="static/plugins/jquery/jquery.min.js"></script>
+	<script src="static/plugins/jquery/jquery-migrate.min.js"></script>
+	<script src="static/plugins/bootstrap/js/bootstrap.min.js"></script>
+
+	<!-- JS Implementing Plugins -->
+	<script src="static/plugins/back-to-top.js"></script>
+
+	<!-- JS Page Level -->
+	<script src="static/js/app.js"></script>
+
+	<script>
+		jQuery(document).ready(function() {
+			App.init();
+		});
+	</script>
+	<!--[if lt IE 9]>
+	  <script src="plugins/respond.js"></script>
+	  <script src="plugins/html5shiv.js"></script>
+	  <script src="plugins/placeholder-IE-fixes.js"></script>
+	<![endif]-->
+</body>
+</html>
