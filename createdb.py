@@ -12,8 +12,7 @@ class Team_1(db.Entity):
     teamid = Required(unicode)
     Name = Required(unicode)
     country = Required(unicode)
-    
-
+   
 
 
 
@@ -21,22 +20,6 @@ class Team_1(db.Entity):
 db.bind("sqlite", "database.sqlite", create_db=True)
 db.generate_mapping(create_tables=True)	
 
-
-
-
-
-from flask import Flask, jsonify
-app = Flask(__name__)
-CORS(app)
-
-
-@app.route('/',methods = ['POST','GET'])
-@db_session 
-def index():
-
-    list = Team_1.select()
-    
-    return to_json(list)
 @db_session
 def llenandobase():
     Team_1(teamid = u"1",Name = u"Barcelona",country =u"Spain")
@@ -60,13 +43,11 @@ def llenandobase():
     Team_1(teamid = u"19",Name = u"Real Betis",country = u"Spain")
     Team_1(teamid = u"20",Name = u"Deportivo",country = u"Spain")
 
+
+
 if __name__ == '__main__':
-	#llenandobase()
-	app.run(host ='',port = 8080, debug = True)
-
-
-
-
+	llenandobase()
+	
 
 
 
