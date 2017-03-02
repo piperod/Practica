@@ -1,35 +1,92 @@
 <!DOCTYPE hmtl>
 <html ng-app="myApp">
-<h1> tabla</h1>
+<h1><strong>Table</strong></h1>
 <head>
     <script src="//code.angularjs.org/1.3.0-rc.1/angular.min.js"></script>
     <script src="app.js"></script>
     <script type='text/javascript' src='http://code.jquery.com/jquery-2.1.0.js'></script>
-  
-  
-  
-  <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-  <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   
   
    
     
       <link rel="stylesheet" type="text/css" href="https://rawgit.com/wenzhixin/bootstrap-table/master/src/bootstrap-table.css">
-    
-  
-    
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"></script>
       <script type='text/javascript' src="https://rawgit.com/wenzhixin/bootstrap-table/master/src/bootstrap-table.js"></script>
     
 </head>
-<div ng-controller="customersCtrl"> 
-                
-    <h3>repeat</h3>
-        <ul>
-            <li ng-repeat="thing in things">
-                 {{ thing.City }}
-            </li>
-        </ul>
-
+<div class="container" ng-controller="teamCtrl"> 
+    
+    <div class="container">
+    <h3>Add to table</h3>
+    <form name="teamForm" method="post" action="">
+      <div class="form-group">
+        <label for="teamid">team ID</label>
+        <input type="text" class="form-control" id="teamid" name="teamid" required>
+      </div>
+      <div class="form-group">
+        <label for="Name">Name</label>
+        <input type="text" class="form-control" id="Name" name="Name">
+      </div>
+      <div class="form-group">
+        <label for="country">country</label>
+        <input type="text" class="form-control" id="country" name="country">
+      </div> 
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
 </div>
+    
+      <div class="alert alert-info">
+          <p>Sort Type: {{ sortType }}</p>
+          <p>Search Query: {{ searchName }}</p>
+      </div>
+  <!- form in which the filtering of table gets its value via searchName->
+  <form>
+    <div class="form-group">
+      <div class="input-group">
+        <div class="input-group-addon"><i class="fa fa-search"></i></div>
+        <input type="text" class="form-control" placeholder="Search for Team" ng-model="searchName">
+      </div>      
+    </div>
+  </form>
 
+    <table class="table table-bordered table-striped">
+    <!- sort reverse in table -> 
+    <thead>
+      <tr>
+        <td>
+          <a href="#" ng-click="sortType = 'teamid'; sortReverse = !sortReverse">
+          Team ID
+            <span ng-show="sortType == 'teamid' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'teamid' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'Name'; sortReverse = !sortReverse">
+          Team 
+            <span ng-show="sortType == 'Name' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'Name' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+        <td>
+          <a href="#" ng-click="sortType = 'country'; sortReverse = !sortReverse">
+          Country
+            <span ng-show="sortType == 'country' && !sortReverse" class="fa fa-caret-down"></span>
+            <span ng-show="sortType == 'country' && sortReverse" class="fa fa-caret-up"></span>
+          </a>
+        </td>
+      </tr>
+    </thead>
+    <!- controller doing the repeat with json objects ->
+    <tbody>
+      <tr ng-repeat="thing in things | orderBy : sortType:sortReverse | filter:searchName">
+        <td>{{thing.teamid}}</td>
+        <td>{{thing.Name}}</td>
+        <td>{{thing.country}}</td>
+      </tr>
+      
+    </tbody>
+  </table>
+</div>
 </html>
